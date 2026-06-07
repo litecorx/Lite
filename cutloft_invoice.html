@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cut Loft — Invoice</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0}
+
+  html, body {
+    min-height: 100%;
+    width: 100%;
+    background: #0D0C07;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 3rem 2.5rem;
+    background: #111009;
+    min-height: 100vh;
+  }
+
+  .logo-row{display:flex;align-items:center;gap:10px;margin-bottom:2.5rem}
+  .logo-chevron{width:28px;height:28px;flex-shrink:0}
+  .logo-text{font-family:'Syne',sans-serif;font-weight:700;font-size:1.15rem;color:#EDE8DC;letter-spacing:-0.02em}
+
+  .badge{display:inline-flex;align-items:center;gap:6px;background:#1E1C14;border:1px solid #2E2C22;border-radius:999px;padding:5px 14px;font-size:11px;letter-spacing:0.08em;color:#B5AA8A;text-transform:uppercase;margin-bottom:2.5rem}
+  .badge-dot{width:6px;height:6px;border-radius:50%;background:#C8B97A}
+
+  .headline{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2.2rem,6vw,3.8rem);line-height:1.0;letter-spacing:-0.03em;color:#EDE8DC;margin-bottom:1.5rem}
+  .headline em{color:#C8B97A;font-style:italic}
+
+  .sub{font-size:13.5px;color:#7A7460;line-height:1.6;margin-bottom:2.5rem}
+
+  .divider{border:none;border-top:1px solid #2A2820;margin:2rem 0}
+  .invoice-label{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#5A5540;margin-bottom:1.2rem}
+
+  .table{width:100%;border-collapse:collapse;margin-bottom:1.5rem}
+  .table th{font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:#5A5540;padding:0 0 10px;text-align:left;border-bottom:1px solid #2A2820}
+  .table th:last-child,.table td:last-child{text-align:right}
+  .table td{padding:11px 0;font-size:13px;color:#B5AA8A;border-bottom:1px solid #1A1810;vertical-align:middle}
+  .table td.num{color:#EDE8DC;font-family:'Syne',sans-serif;font-weight:600}
+
+  .link-cell a{font-size:10.5px;color:#C8B97A;text-decoration:none;opacity:0.65;transition:opacity 0.2s;word-break:break-all}
+  .link-cell a:hover{opacity:1}
+
+  .total-row{display:flex;justify-content:space-between;align-items:center;background:#1A1810;border:1px solid #2A2820;border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:0.75rem}
+  .total-label{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#5A5540}
+  .total-amount{font-family:'Syne',sans-serif;font-weight:800;font-size:1.8rem;color:#C8B97A;letter-spacing:-0.02em}
+
+  .count-row{display:flex;justify-content:space-between;align-items:center;padding:0.5rem 1.5rem;margin-bottom:0.25rem}
+  .count-label{font-size:12px;color:#5A5540}
+  .count-val{font-size:12px;color:#7A7460;font-family:'Syne',sans-serif;font-weight:600}
+
+  .footer{display:flex;justify-content:space-between;align-items:center;margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid #1E1C14}
+  .footer-from,.footer-to{font-size:11px;color:#3A3828}
+  .footer-to{text-align:right}
+  .footer strong{color:#5A5540;display:block;margin-bottom:2px}
+
+  /* 16:9 — wide screens: cap width, true center */
+  @media (min-width: 900px) {
+    body { align-items: center; min-height: 100vh; }
+    .page { border-radius: 16px; min-height: unset; margin: 2rem auto; }
+  }
+
+  /* 9:16 — narrow/mobile */
+  @media (max-width: 480px) {
+    .page { padding: 2rem 1.25rem; }
+    .headline { font-size: clamp(1.8rem, 10vw, 2.6rem); }
+    .footer { flex-direction: column; gap: 1rem; align-items: flex-start; }
+    .footer-to { text-align: left; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="logo-row">
+    <svg class="logo-chevron" viewBox="0 0 28 28" fill="none">
+      <polygon points="4,4 18,14 4,24" fill="#C8B97A"/>
+      <polygon points="12,4 26,14 12,24" fill="#C8B97A" opacity="0.45"/>
+    </svg>
+    <span class="logo-text">Cut Loft</span>
+  </div>
+
+  <div class="badge"><span class="badge-dot"></span>Invoice — 2026</div>
+
+  <div class="headline">We edit<br><em>frames</em> into<br>stories.</div>
+
+  <p class="sub">Premium video editing services delivered for <strong style="color:#B5AA8A">One Life Rally</strong>. Fast turnarounds. Zero compromise on quality.</p>
+
+  <hr class="divider">
+  <p class="invoice-label">File links &amp; pricing</p>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th style="width:36px">#</th>
+        <th>Google Drive Link</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody id="rows"></tbody>
+  </table>
+
+  <div class="total-row">
+    <div class="total-label">Total Due</div>
+    <div class="total-amount" id="total">$0</div>
+  </div>
+  <div class="count-row">
+    <span class="count-label">Total links</span>
+    <span class="count-val" id="count">0</span>
+  </div>
+
+  <div class="footer">
+    <div class="footer-from"><strong>From</strong>Cut Loft Agency</div>
+    <div class="footer-to"><strong>Billed To</strong>One Life Rally</div>
+  </div>
+</div>
+
+<script>
+const links=[
+"https://drive.google.com/file/d/1GU2AHiO3gMO4GWB8LoOVbMd8Ag2mMpud/view?usp=sharing",
+"https://drive.google.com/file/d/1bzaSlqPt5mA9CigIW20Jo9sGEir1ctaK/view?usp=sharing",
+"https://drive.google.com/file/d/1VepI_kEojYk_BBgbkO_hbWZaxxvIUipR/view?usp=sharing",
+"https://drive.google.com/file/d/1YImShE0pYnEDw6WW_e_prymjWAaKJ1r6/view?usp=sharing",
+"https://drive.google.com/file/d/182-BJ0KUviDZYcjvMVXBnSr_aJLdXx8S/view?usp=sharing",
+"https://drive.google.com/file/d/1ClcQnXmfd_Jqv1t6Dxu_b8Wnf1kVX73_/view?usp=sharing",
+"https://drive.google.com/file/d/1RF1nXQzs3LqJWKPp3h9WB4dHC3RsYPjd/view?usp=sharing",
+"https://drive.google.com/file/d/1XECSC53299GCZ3LhsGA5JuuTgR6mMezN/view?usp=sharing",
+"https://drive.google.com/file/d/1DTCAODkVpmoVBDveTqa3aYeA-lbZvjkb/view?usp=sharing",
+"https://drive.google.com/file/d/1riidZ7WH9XaMqvvd5YatiGVPQPrDIB-R/view?usp=sharing",
+"https://drive.google.com/file/d/1idOz-x7oHDEjPH2OmLu5gXfMtMTBceZq/view?usp=sharing",
+"https://drive.google.com/file/d/1DTCAODkVpmoVBDveTqa3aYeA-lbZvjkb/view?usp=sharing",
+"https://drive.google.com/file/d/1aHPsaz-J57x3UQtN1GRMepYvYhHWfvHB/view?usp=sharing",
+"https://drive.google.com/file/d/1GJLs7aY3MsKG9V3LY70gmSwfuKEPa1vY/view?usp=sharing",
+"https://drive.google.com/file/d/1q8RjvxS5CEGkXpXyZikCPJ9MQBJcV2NP/view?usp=sharing",
+"https://drive.google.com/file/d/1YDOEWBDXsZYM_Vha4HJ5LUnUmQistzD3/view?usp=sharing"
+];
+const price=20;
+const tbody=document.getElementById('rows');
+links.forEach((l,i)=>{
+  const tr=document.createElement('tr');
+  const short=l.replace('https://drive.google.com/file/d/','').replace('/view?usp=sharing','');
+  tr.innerHTML=`<td class="num">${i+1}</td><td><div class="link-cell"><a href="${l}" target="_blank">drive.google.com/…/${short.slice(0,20)}…</a></div></td><td class="num">$${price}</td>`;
+  tbody.appendChild(tr);
+});
+document.getElementById('total').textContent='$'+links.length*price;
+document.getElementById('count').textContent=links.length;
+</script>
+</body>
+</html>
